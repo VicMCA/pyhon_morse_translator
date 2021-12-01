@@ -11,65 +11,138 @@
         color: #ddd;
         font-family: Arial, Helvetica, sans-serif;
       }
+      .formulario {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .formulario h1 {
+        font-size: 1.7rem;
+      }
+      .formulario label {
+        font-size: 1.5rem;
+      }
+      .form_buttons {
+        background-color: #111;
+        color: #ddd;
+        border-style: none;
+        border-radius: 3px;
+        padding: 0.5rem 1rem;
+        margin: 0.2rem 0px;
+      }
+      .form_buttons:hover {
+        background-color: #294;
+      }
+      .form_buttons:active {
+        background-color: #269;
+      }
+      #code {
+        width: 20em;
+        padding: 5px;
+        border-style: none;
+        border-radius: 20px;
+        font-size: 1rem;
+        margin-top: 0.5rem;
+      }
+      .teclado {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .teclado button {
+        background-color: #111;
+        color: #ddd;
+        border-style: none;
+        border-radius: 3px;
+        margin: 2px 0px;
+      }
+      .teclado button:hover {
+        background-color: #294;
+      }
+      .teclado button:active {
+        background-color: #269;
+      }
+      .number_row button {
+        width: 2rem;
+        padding: 5px 0px;
+      }
+      .upper_row button, .middle_row button, .lower_row button {
+        width: 2rem;
+        padding: 5px 5px;
+      }
+      .bottom_row button {
+        padding: 5px 2rem;
+      }
     </style>
   </head>
   <body>
+    
+    <div class="formulario">
+      <h1 class="titulo_principal">Conversão de Código-Morse em Texto</h1>
+      <form class="form_input" method="post">
+        <label for="code">Código Morse:</label><br/>
+        <input type="text" id="code" name="code" placeholder="/.-//"><br/>
+        <input class="form_buttons" type="submit" value="Traduzir">
+        <input class="form_buttons" type="reset" value="Limpar">
+      </form>
+    </div>
 
-    <h1 class="titulo_principal">Conversão de Código-Morse em Texto</h1>
-    <form class="form_input">
-      <label for="code">Código Morse:</label><br/>
-      <input type="text" id="code" name="code" placeholder="/.-//"><br/>
-      <input type="submit" value="Traduzir"><input type="reset" value="Limpar">
-    </form>
-
-    <h3 class="titulo_tabela">Tabela de Conversão e Teclado:</h3>
     <div class="teclado">
-      <button id="btn1">1<br/>.----</button>
-      <button id="btn2">2<br/>..---</button>
-      <button id="btn3">3<br/>...--</button>
-      <button id="btn4">4<br/>....-</button>
-      <button id="btn5">5<br/>.....</button>
-      <button id="btn6">6<br/>-....</button>
-      <button id="btn7">7<br/>--...</button>
-      <button id="btn8">8<br/>---..</button>
-      <button id="btn9">9<br/>----.</button>
-      <button id="btn0">0<br/>-----</button>
-      <br/>
-      <button id="btnQ">Q<br/>--.-</button>
-      <button id="btnW">W<br/>.--</button>
-      <button id="btnE">E<br/>.</button>
-      <button id="btnR">R<br/>.-.</button>
-      <button id="btnT">T<br/>-</button>
-      <button id="btnY">Y<br/>-.--</button>
-      <button id="btnU">U<br/>..-</button>
-      <button id="btnI">I<br/>..</button>
-      <button id="btnO">O<br/>---</button>
-      <button id="btnP">P<br/>.--.</button>
-      <br/>
-      <button id="btnA">A<br/>.-</button>
-      <button id="btnS">S<br/>...</button>
-      <button id="btnD">D<br/>-..</button>
-      <button id="btnF">F<br/>..-.</button>
-      <button id="btnG">G<br/>--.</button>
-      <button id="btnH">H<br/>....</button>
-      <button id="btnJ">J<br/>.---</button>
-      <button id="btnK">K<br/>-.-</button>
-      <button id="btnL">L<br/>.-..</button>
-      <br/>
-      <button id="btnZ">Z<br/>--..</button>
-      <button id="btnX">X<br/>-..-</button>
-      <button id="btnC">C<br/>-.-.</button>
-      <button id="btnV">V<br/>...-</button>
-      <button id="btnB">B<br/>-...</button>
-      <button id="btnN">N<br/>-.</button>
-      <button id="btnM">M<br/>--</button>
-      <br/>
-      <button id="btnSlash">Fim de caractere: /</button>
-      <button id="btnSpace">Espaço: //</button>
+      <h3 class="titulo_tabela">Tabela de Conversão e Teclado:</h3>
+      <div class="number_row">
+        <button id="btn1">1<br/>.----</button>
+        <button id="btn2">2<br/>..---</button>
+        <button id="btn3">3<br/>...--</button>
+        <button id="btn4">4<br/>....-</button>
+        <button id="btn5">5<br/>.....</button>
+        <button id="btn6">6<br/>-....</button>
+        <button id="btn7">7<br/>--...</button>
+        <button id="btn8">8<br/>---..</button>
+        <button id="btn9">9<br/>----.</button>
+        <button id="btn0">0<br/>-----</button>
+      </div>
+      <div class="upper_row">
+        <button id="btnQ">Q<br/>--.-</button>
+        <button id="btnW">W<br/>.--</button>
+        <button id="btnE">E<br/>.</button>
+        <button id="btnR">R<br/>.-.</button>
+        <button id="btnT">T<br/>-</button>
+        <button id="btnY">Y<br/>-.--</button>
+        <button id="btnU">U<br/>..-</button>
+        <button id="btnI">I<br/>..</button>
+        <button id="btnO">O<br/>---</button>
+        <button id="btnP">P<br/>.--.</button>
+      </div>
+      <div class="middle_row">
+        <button id="btnA">A<br/>.-</button>
+        <button id="btnS">S<br/>...</button>
+        <button id="btnD">D<br/>-..</button>
+        <button id="btnF">F<br/>..-.</button>
+        <button id="btnG">G<br/>--.</button>
+        <button id="btnH">H<br/>....</button>
+        <button id="btnJ">J<br/>.---</button>
+        <button id="btnK">K<br/>-.-</button>
+        <button id="btnL">L<br/>.-..</button>
+      </div>
+      <div class="lower_row">
+        <button id="btnZ">Z<br/>--..</button>
+        <button id="btnX">X<br/>-..-</button>
+        <button id="btnC">C<br/>-.-.</button>
+        <button id="btnV">V<br/>...-</button>
+        <button id="btuppernB">B<br/>-...</button>
+        <button id="btnN">N<br/>-.</button>
+        <button id="btnM">M<br/>--</button>
+      </div>
+      <div class="bottom_row">
+        <button id="btnSlash">Fim de caractere: /</button>
+        <button id="btnSpace">Espaço: //</button>
+      </div>
     </div>
 
     <script>
-      
+
     </script>
 
   </body>

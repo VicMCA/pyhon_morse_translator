@@ -1,15 +1,3 @@
-from flask import Flask, render_template, request
-
-app = Flask(__name__)
-
-@app.route("/", methods=["POST", "GET"])
-def home():
-  if request.method == "POST":
-    
-    pass
-  return "<p>Hello World!<br/>Hot-reload on!</p>"
-
-
 def morse(codigo):
   '''
   Contém o dicionário e realiza a tradução do input 
@@ -39,8 +27,6 @@ def morse(codigo):
     '7': '--...', '8': '---..', '9': '----.', 'c': '', 'space': ' ',
   }
 
-  codigo = '--/---/.-./..././/-.-./---/-.././'
-
   caractere = ''
   lista_caracteres = []
   caracteres_traduzidos = ''
@@ -62,6 +48,5 @@ def morse(codigo):
   
   return ''.join(lista_caracteres)
 
-
 if __name__ == '__main__':
-  app.run(debug=True)
+    print(morse('--/---/.-./..././/-.-./---/-.././'))
