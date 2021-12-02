@@ -1,16 +1,25 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, url_for, redirect
 
 app = Flask(__name__)
 
 @app.route("/", methods=["POST", "GET"])
 def index():
+  traducao = ''
   if request.method == "POST":
+    codigo = request.form['codigo']
     try:
-      codigo = request.form['codigo']
+      traducao = morse(codigo + '/')
+      return render_template('index.html', traducao=traducao)
     except:
-      return "error"
-
-  return render_template("index.html")
+      traducao, codigo = ''
+      if len(codigo) > 1:
+        traducao = 'Erro ao traduzir. A sequência de símbolos não corresponde a nenhum caractere válido.'
+        return render_template('index.html', traducao=traducao)
+      else:
+        traducao = ''
+        return render_template('index.html', traducao=traducao)
+  else:
+    return render_template('index.html', traducao=traducao)
 
 
 def morse(codigo):
@@ -63,7 +72,9 @@ def morse(codigo):
           pass
         caractere = ''
       caractere_anterior = x
+    
     return ''.join(lista_caracteres)
+
 
 
 if __name__ == '__main__':

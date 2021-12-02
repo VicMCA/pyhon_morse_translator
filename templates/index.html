@@ -15,13 +15,21 @@
 
       <form class="formulario" action="/" method="POST">
         <h3>Insira abaixo o código morse</h3>
-        <p>São aceitos apenas os caracteres "." (ponto final), "-" (sinal de menos) e "/" (barra).</p>
+        <p>São aceitos apenas os caracteres:<br>
+          <ol class="lista-caracteres">
+            <li>"." (ponto final)</li>
+            <li>"-" (sinal de menos)</li>
+            <li>"/" (barra).</li>
+          </ol>
+        </p>
         <input type="text" oninput="removerCaracteres()" 
           required id="codigo" name="codigo" 
-          placeholder="--/---/.-./..././/-.-./---/-../."><br/>
+          placeholder="Exemplo: ---/..//---/.."><br/>
         <button class="form_buttons" type="submit">Traduzir</button>
         <button class="form_buttons" type="reset">Limpar</button>
       </form>
+
+      <p class="resultado">{{ traducao }}</p>
       
       <div class="informacoes-morse">
         <table class="tabela-morse">
