@@ -4,9 +4,12 @@ app = Flask(__name__)
 
 @app.route("/", methods=["POST", "GET"])
 def home():
+  message = '-./---//--/./.../.../.-/--././'
   if request.method == "POST":
-    
     pass
+
+  print(morse(message))
+
   return "<p>Hello World!<br/>Hot-reload on!</p>"
 
 
@@ -39,8 +42,6 @@ def morse(codigo):
     '7': '--...', '8': '---..', '9': '----.', 'c': '', 'space': ' ',
   }
 
-  codigo = '--/---/.-./..././/-.-./---/-.././'
-
   caractere = ''
   lista_caracteres = []
   caracteres_traduzidos = ''
@@ -59,7 +60,7 @@ def morse(codigo):
         pass
       caractere = ''
     caractere_anterior = x
-  
+
   return ''.join(lista_caracteres)
 
 
