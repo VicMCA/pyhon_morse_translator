@@ -49,29 +49,35 @@ def morse():
     '7': '--...', '8': '---..', '9': '----.', 'c': '', 'space': ' ',
   }
   
-  codigo = (input('Insira abaixo o código morse:\n> ') + '/')
-  # codigo = '--/---/.-./..././/-.-./---/-.././'
+  # codigo = (input('Insira abaixo o código morse:\n> ') + '/')
+  codigo = '--/---/.-./..././/-.-./---/-.././'
 
+  caracteres_aceitos = ['.', '-', '/']
   caractere = ''
   lista_caracteres = []
-  caracteres_traduzidos = ''
   caractere_anterior = ''
-  
-  for x in codigo:
-    if x == '.' or x == '-':
-      caractere += x
-    elif x == '/':
-      if caractere != '':
-        lista_caracteres.append(tabela_morse_to_char[f'{caractere}'])
-      if caractere_anterior == '/':
-        lista_caracteres.append(' ')
-      else:
-        # lista_caracteres.append('')
-        pass
-      caractere = ''
-    caractere_anterior = x
-  
-  print(''.join(lista_caracteres))
+
+  for char in codigo:
+    if char not in caracteres_aceitos:
+      # return "O código enviado possui caracteres não-aceitos."
+      print("O código enviado possui caracteres não-aceitos.")
+      break
+  else:
+    for x in codigo:
+      if x == '.' or x == '-':
+        caractere += x
+      elif x == '/':
+        if caractere != '':
+          lista_caracteres.append(tabela_morse_to_char[f'{caractere}'])
+        if caractere_anterior == '/':
+          lista_caracteres.append(' ')
+        else:
+          # lista_caracteres.append('')
+          pass
+        caractere = ''
+      caractere_anterior = x
+    # return ''.join(lista_caracteres)
+    print(''.join(lista_caracteres))
 
 
 if __name__ == '__main__':

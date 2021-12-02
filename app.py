@@ -3,14 +3,14 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 
 @app.route("/", methods=["POST", "GET"])
-def home():
-  message = '-./---//--/./.../.../.-/--././'
+def index():
   if request.method == "POST":
-    pass
+    try:
+      codigo = request.form['codigo']
+    except:
+      return "error"
 
-  print(morse(message))
-
-  return "<p>Hello World!<br/>Hot-reload on!</p>"
+  return render_template("index.html")
 
 
 def morse(codigo):
@@ -42,27 +42,29 @@ def morse(codigo):
     '7': '--...', '8': '---..', '9': '----.', 'c': '', 'space': ' ',
   }
 
+  caracteres_aceitos = ['.', '-', '/']
   caractere = ''
   lista_caracteres = []
-  caracteres_traduzidos = ''
   caractere_anterior = ''
-  
-  for x in codigo:
-    if x == '.' or x == '-':
-      caractere += x
-    elif x == '/':
-      if caractere != '':
-        lista_caracteres.append(tabela_morse_to_char[f'{caractere}'])
-      if caractere_anterior == '/':
-        lista_caracteres.append(' ')
-      else:
-        # lista_caracteres.append('')
-        pass
-      caractere = ''
-    caractere_anterior = x
 
-  return ''.join(lista_caracteres)
+  for char in codigo:
+    if char not in caracteres_aceitos:
+      return "O código enviado possui caracteres não-aceitos."
+  else:
+    for x in codigo:
+      if x == '.' or x == '-':
+        caractere += x
+      elif x == '/':
+        if caractere != '':
+          lista_caracteres.append(tabela_morse_to_char[f'{caractere}'])
+        if caractere_anterior == '/':
+          lista_caracteres.append(' ')
+        else:
+          pass
+        caractere = ''
+      caractere_anterior = x
+    return ''.join(lista_caracteres)
 
 
 if __name__ == '__main__':
-  app.run(debug=True)
+  app.run(debug=True, port=5000)
