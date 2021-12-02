@@ -6,23 +6,21 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 @app.route("/", methods=["POST", "GET"])
 def index():
-  traducao = ''
+  resultado = ''
   if request.method == "POST":
     codigo = request.form['codigo']
     try:
-      traducao = morse(codigo + '/')
-      return render_template('index.html', traducao=traducao)
+      resultado = morse(codigo + '/')
+      return render_template('index.html', resultado=resultado)
     except:
-      traducao, codigo = ''
-      if len(codigo) > 1:
-        traducao = 'Erro ao traduzir. A sequência de símbolos não corresponde a nenhum caractere válido.'
-        return render_template('index.html', traducao=traducao)
+      if len(codigo) > 0:
+        resultado = 'Erro ao traduzir. A sequência de símbolos não corresponde a nenhum caractere válido.'
+        return render_template('index.html', resultado=resultado)
       else:
-        traducao = ''
-        return render_template('index.html', traducao=traducao)
+        return redirect('/')
   else:
-    return render_template('index.html', traducao=traducao)
-
+    return render_template('index.html')
+  
 
 def morse(codigo):
   '''

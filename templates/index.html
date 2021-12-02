@@ -24,12 +24,18 @@
         </p>
         <input type="text" oninput="removerCaracteres()" 
           required id="codigo" name="codigo" 
-          placeholder="Exemplo: ---/..//---/.."><br/>
+          placeholder="Exemplo: ---/..//---/..">
         <button class="form_buttons" type="submit">Traduzir</button>
         <button class="form_buttons" type="reset">Limpar</button>
       </form>
 
-      <p class="resultado">{{ traducao }}</p>
+      <p class="resultado">Resultado:<br/>
+        {% if resultado|length > 0 %}
+          {{ resultado }}
+        {% else %}
+          
+        {% endif %}
+      </p>
       
       <div class="informacoes-morse">
         <table class="tabela-morse">
