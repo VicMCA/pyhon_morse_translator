@@ -1,5 +1,15 @@
 # Desafio: Tradutor de Código Morse
 
+## Índice
+
+1. [Descrição](#descricao)
+2. [Requisitos](#requisitos)
+3. [Progresso Atual](#progresso)
+4. [Briefing do Projeto](#briefing)
+5. [Tabela de Referência para Código Morse](#referencia)
+
+## 1. Descrição {#descricao}
+
 Este é um tradutor de código morse para alfabeto. Reconhece todas as 26 letras do alfabeto mais os algarismos de '0' à '9'. Os inputs reconhecidos são:  
 
 <pre>
@@ -11,12 +21,37 @@ Este é um tradutor de código morse para alfabeto. Reconhece todas as 26 letras
 
 Acentuações, pontuações e caracteres especiais não são reconhecidos. Todos os caracteres serão retornados como maiúscula quando aplicável.  
 
-Etapas a serem realizadas:  
-1. Tratamento de erros para inputs inválidos
-2. Tornar o programa acessível através de uma API
-3. Conectar a API à um frontend básico
-<br/><br/>
-  
+## 2. Requisitos {#requisitos}
+
+O App deve:  
+<br/>
+1. Possuir um campo para inserção de código morse
+2. Enviar o código para o servidor
+3. Retornar o código traduzido para os caracteres ASCII disponíveis
+4. Impedir a inserção de caracteres inválidos
+5. Retornar um erro caso o código informado possua:  
+&nbsp;&nbsp; - Caracteres inválidos  
+&nbsp;&nbsp; - Combinações de caracteres não reconhecidas  
+6. Permitir a limpeza dos campos de código e do resultado
+7. Possuir uma tabela de referência para a digitação do código morse
+
+## 3. Progresso Atual {#progresso}
+
+Lista de requisitos:  
+
+-[x] HTML contendo todas as informações para o usuário
+-[x] Formulário de input com campos de envio e reset
+-[x] Campo para exibição do resultado com opção de limpeza do mesmo
+-[x] Tratamento de erros para inputs inválidos no backend
+-[x] Tratamento de erros para inputs inválidos no frontend
+-[x] Tornar o programa acessível através de uma API
+-[x] Conectar a API à um frontend básico
+-[ ] CSS
+-[x] Tabela de letras, números e códigos correspondentes
+-[ ] Tela de "sobre" do projeto
+-[ ] Link para repositório no GitHub
+
+## 4. Briefing do Projeto {#briefing}
 ## Definição do desafio:
 Precisamos que você crie um repositório no github ou gitlab e depois inicie um projeto que tenha o objetivo de criar uma tradução de código morse. A ideia é uma solução baseada em socket que recebe um código morse e converte ele em texto. Imagine que o cliente vai enviar "." e "-" e o servidor vai receber estas informações e interpretar o que aquele código morse representa. 
 
@@ -29,7 +64,8 @@ Reflita sobre a arquitetura que você gostaria de usar, que serviços teria e co
 É importante para a gente você descrever o que motivou suas decisões e caso você tivesse mais tempo como seria a evolução desta arquitetura/produto.
 <br/><br/>
 
-## Morse cheat sheet:
+## 5. Tabela de Referência para Código Morse {#referencia}
+### Morse Code heat sheet:
 
 ```
 A = .-      B = -...    C = -.-.    D = -..     E = .       F = ..-.
