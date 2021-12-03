@@ -2,11 +2,12 @@
 
 ## Índice
 
-1. [Descrição](#descricao)
-2. [Requisitos](#requisitos)
-3. [Progresso Atual](#progresso)
-4. [Briefing do Projeto](#briefing)
-5. [Tabela de Referência para Código Morse](#referencia)
+1. [Descrição](https://github.com/VicMCA/python_morse_translator#1-descri%C3%A7%C3%A3o)
+2. [Configuração](https://github.com/VicMCA/python_morse_translator#2-configura%C3%A7%C3%A3o)
+3. [Requisitos](https://github.com/VicMCA/python_morse_translator#3-requisitos)
+4. [Progresso Atual](https://github.com/VicMCA/python_morse_translator#4-progresso-atual)
+5. [Briefing do Projeto](https://github.com/VicMCA/python_morse_translator#5-briefing-do-projeto)
+6. [Tabela de Referência para Código Morse](https://github.com/VicMCA/python_morse_translator#6-tabela-de-refer%C3%AAncia-para-c%C3%B3digo-morse)
 
 ## 1. Descrição 
 
@@ -20,8 +21,26 @@ Este é um tradutor de código morse para alfabeto. Reconhece todas as 26 letras
 </pre>
 
 Acentuações, pontuações e caracteres especiais não são reconhecidos. Todos os caracteres serão retornados como maiúscula quando aplicável.  
+Passo a passo de instalação e configuração:
+## 2. Configuração  
 
-## 2. Requisitos
+Pacotes utilizados:  
+
+1. Python 3.8
+2. Python 3.8 Virtual Environment (venv)
+3. Pip
+4. Flask
+
+Passo a passo de instalação e configuração:
+
+1. Clonar este repositório `git clone https://github.com/VicMCA/python_morse_translator.git`  
+2. Dentro da pasta raíz, crie recrie o ambiente virtual `python3 -m venv venv`  
+3. Ativar o ambiente virtual `. venv/bin/activate` (Linux e MacOS) `venv\Scripts\activate` (Windows)  
+4. Instalar o Flask no ambiente virtual `pip3 install flask`  
+5. Rodar a aplicação com `python3 app.py`  
+6. O frontend ficará acessível em `http://localhost:5000`  
+
+## 3. Requisitos
 
 O App deve:  
 <br/>
@@ -35,7 +54,7 @@ O App deve:
 6. Permitir a limpeza dos campos de código e do resultado
 7. Possuir uma tabela de referência para a digitação do código morse
 
-## 3. Progresso Atual 
+## 4. Progresso Atual 
 
 Lista de requisitos:  
 
@@ -46,12 +65,15 @@ Lista de requisitos:
 - [x] Tratamento de erros para inputs inválidos no frontend
 - [x] Tornar o programa acessível através de uma API
 - [x] Conectar a API à um frontend básico
+- [x] Modularizar o código (scripts de tradução separados das rotas do servidor)
+- [x] Criação de endpoints reservados para o envio dos códigos a traduzir
 - [ ] CSS
 - [x] Tabela de letras, números e códigos correspondentes
+- [ ] Testes de carga
 - [ ] Página de "sobre" do projeto
 - [ ] Link para repositório no GitHub
 
-## 4. Briefing do Projeto 
+## 5. Briefing do Projeto 
 ## Definição do desafio:
 Precisamos que você crie um repositório no github ou gitlab e depois inicie um projeto que tenha o objetivo de criar uma tradução de código morse. A ideia é uma solução baseada em socket que recebe um código morse e converte ele em texto. Imagine que o cliente vai enviar "." e "-" e o servidor vai receber estas informações e interpretar o que aquele código morse representa. 
 
@@ -64,7 +86,7 @@ Reflita sobre a arquitetura que você gostaria de usar, que serviços teria e co
 É importante para a gente você descrever o que motivou suas decisões e caso você tivesse mais tempo como seria a evolução desta arquitetura/produto.
 <br/><br/>
 
-## 5. Tabela de Referência para Código Morse 
+## 6. Tabela de Referência para Código Morse 
 ### Morse Code heat sheet:
 
 ```
