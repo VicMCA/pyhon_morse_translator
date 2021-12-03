@@ -5,7 +5,88 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conversor de Morse para ASCII</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"> -->
+
+    <!-- Arquivo do CSS desabilitado por hora. O teste do CSS fica 
+    mais rápido com as definições aqui no próprio HTML.
+
+    Após finalizado será enviado de volta para o arquivo main.css -->
+
+    <style>
+      body {
+        font-family: sans-serif;
+        font-size: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        color: #222;
+      }
+
+      button {
+        background-color: #ddd;
+        border-style: none;
+        border-radius: 0.2em;
+        padding: .5rem 1rem;
+        transition: .2s ease;
+      }
+      button:hover {
+        background-color: #bbb;
+        transition: .1s ease;
+      }
+
+      .formulario input {
+        border-style: solid;
+        border-width: 1px;
+        border-color: #ddd;
+        border-radius: 0.2em;
+        padding: 5px 10px;
+        font-family: monospace;
+        transition: .4s ease;
+      }
+      .formulario input:focus, 
+      .formulario textarea:focus, 
+      .formulario select:focus {
+        border-color: #aaa;
+        border-width: 1px;
+        outline-offset: -4px !important;
+        outline-style: solid;
+        outline-width: 3px;
+        outline-color: #8f9;
+        transition: .2s ease;
+      }
+
+      .title {
+        background-color: #8f9;
+        border-style: none;
+        border-radius: 0.2em;
+        padding: .5rem 2rem;
+      }
+
+      .lista-caracteres, 
+      .lista-caracteres tr, 
+      .lista-caracteres td,
+      .container-tabelas,
+      .container-tabelas 
+      .container-tabelas 
+      .container-tabelas td,
+      .tabela-morse,
+      .tabela-morse th, 
+      .tabela-morse td,
+      .tabela-morse tr {
+        border-style: solid;
+        border-radius: 0.2em;
+        border-color: #bbb;
+        border-width: 1px;
+        border-collapse: collapse;
+        padding: .5em 1em;
+      }
+      .lista-caracteres,
+      .container-tabelas {
+        width: 400px;
+      }
+      
+    </style>
   </head>
   <body>
     
@@ -14,42 +95,58 @@
       <h1 class="title">Conversor de Código-Morse</h1>
 
       <form class="formulario" action="/" method="POST">
+        
         <h3>Insira abaixo o código morse</h3>
+        
         <p>São aceitos apenas os caracteres:<br>
           <table class="lista-caracteres">
+            
             <tr>
               <td><strong>"."</strong></td>
               <td>(ponto final)</td>
             </tr>
+            
             <tr>
               <td><strong>"-"</strong></td>
               <td>(sinal de menos)</td>
             </tr>
+            
             <tr>
               <td><strong>"/"</strong></td>
               <td>(barra)</td>
             </tr>
+
           </table>
         </p>
+
         <input type="text" oninput="removerCaracteres()" 
           id="codigo" name="codigo" required
           placeholder="exemplo: ---/..//./-">
         <button class="form_buttons" type="submit">Traduzir</button>
         <button class="form_buttons" type="reset">Limpar</button>
+
       </form>
 
+
       <div class="traducao">
+
         <h4 class="traducao-titulo">Resultado:</h4>
         <p class="resultado" id="resultado">{{ resultado }}</p>
         <button onclick="limparResultado()" >Limpar resultado</button>
+
       </div>
       
+
       <div class="informacoes-morse">
+        <br/>
         <table class="container-tabelas">
+          
           <tr>
             <th>Lista de caracteres</th>
           </tr>
+          
           <tr>
+
             <table class="tabela-morse" id="tabela-morse-letras">
               <tr>
                 <td>A: .-</td><td>B: -...</td><td>C: -.-.</td><td>D: -..</td>
@@ -66,6 +163,7 @@
                 <td>Y: -.--</td><td>Z: --..</td>
               </tr>
             </table>
+
             <table class="tabela-morse" id="tabela-morse-numeros">
               <tr>
                 <td>1: .----</td><td>2: ..---</td><td>3: ...--</td>
@@ -76,17 +174,23 @@
                 <td>9: ----.</td><td>0: -----</td>
               </tr>
             </table>
+
             <table class="tabela-morse" id="tabela-morse-espacos">
               <tr>
                 <td>Separador de caracteres: /</td>
                 <td>Separador de palavras: //</td>
               </tr>
             </table>
+            
           </tr>
+
         </table>
+
       </div>
+
     </div>
     
+
     <script>
       function limparResultado() {
         let texto = document.getElementById("resultado");
