@@ -48,7 +48,7 @@ Lista de requisitos:
 - [x] Conectar a API à um frontend básico
 - [ ] CSS
 - [x] Tabela de letras, números e códigos correspondentes
-- [ ] Tela de "sobre" do projeto
+- [ ] Página de "sobre" do projeto
 - [ ] Link para repositório no GitHub
 
 ## 4. Briefing do Projeto {#briefing}
