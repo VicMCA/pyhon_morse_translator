@@ -39,17 +39,17 @@ O App deve:
 
 Lista de requisitos:  
 
--[x] HTML contendo todas as informações para o usuário
--[x] Formulário de input com campos de envio e reset
--[x] Campo para exibição do resultado com opção de limpeza do mesmo
--[x] Tratamento de erros para inputs inválidos no backend
--[x] Tratamento de erros para inputs inválidos no frontend
--[x] Tornar o programa acessível através de uma API
--[x] Conectar a API à um frontend básico
--[ ] CSS
--[x] Tabela de letras, números e códigos correspondentes
--[ ] Tela de "sobre" do projeto
--[ ] Link para repositório no GitHub
+- [x] HTML contendo todas as informações para o usuário
+- [x] Formulário de input com campos de envio e reset
+- [x] Campo para exibição do resultado com opção de limpeza do mesmo
+- [x] Tratamento de erros para inputs inválidos no backend
+- [x] Tratamento de erros para inputs inválidos no frontend
+- [x] Tornar o programa acessível através de uma API
+- [x] Conectar a API à um frontend básico
+- [ ] CSS
+- [x] Tabela de letras, números e códigos correspondentes
+- [ ] Tela de "sobre" do projeto
+- [ ] Link para repositório no GitHub
 
 ## 4. Briefing do Projeto {#briefing}
 ## Definição do desafio:
