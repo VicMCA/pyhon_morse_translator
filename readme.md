@@ -8,7 +8,6 @@
 4. [Briefing do Projeto](#briefing)
 5. [Tabela de Referência para Código Morse](#referencia)
 
-{#descricao}
 ## 1. Descrição 
 
 Este é um tradutor de código morse para alfabeto. Reconhece todas as 26 letras do alfabeto mais os algarismos de '0' à '9'. Os inputs reconhecidos são:  
@@ -22,7 +21,6 @@ Este é um tradutor de código morse para alfabeto. Reconhece todas as 26 letras
 
 Acentuações, pontuações e caracteres especiais não são reconhecidos. Todos os caracteres serão retornados como maiúscula quando aplicável.  
 
-{#requisitos}
 ## 2. Requisitos
 
 O App deve:  
@@ -37,7 +35,6 @@ O App deve:
 6. Permitir a limpeza dos campos de código e do resultado
 7. Possuir uma tabela de referência para a digitação do código morse
 
-{#progresso}
 ## 3. Progresso Atual 
 
 Lista de requisitos:  
@@ -54,7 +51,6 @@ Lista de requisitos:
 - [ ] Página de "sobre" do projeto
 - [ ] Link para repositório no GitHub
 
-{#briefing}
 ## 4. Briefing do Projeto 
 ## Definição do desafio:
 Precisamos que você crie um repositório no github ou gitlab e depois inicie um projeto que tenha o objetivo de criar uma tradução de código morse. A ideia é uma solução baseada em socket que recebe um código morse e converte ele em texto. Imagine que o cliente vai enviar "." e "-" e o servidor vai receber estas informações e interpretar o que aquele código morse representa. 
@@ -68,7 +64,6 @@ Reflita sobre a arquitetura que você gostaria de usar, que serviços teria e co
 É importante para a gente você descrever o que motivou suas decisões e caso você tivesse mais tempo como seria a evolução desta arquitetura/produto.
 <br/><br/>
 
-{#referencia}
 ## 5. Tabela de Referência para Código Morse 
 ### Morse Code heat sheet:
 
