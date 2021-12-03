@@ -4,53 +4,52 @@ app = Flask(__name__)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
+"""Tabelas de tradução"""
+tabela_morse_to_char = {
+  '.-': 'A', '-...': 'B', '-.-.': 'C', '-..': 'D', '.': 'E', 
+  '..-.': 'F', '--.': 'G', '....': 'H', '..': 'I', '.---': 'J', 
+  '-.-': 'K', '.-..': 'L', '--': 'M', '-.': 'N', '---': 'O', 
+  '.--.': 'P', '--.-': 'Q', '.-.': 'R', '...': 'S', '-': 'T', 
+  '..-': 'U', '...-': 'V', '.--': 'W', '-..-': 'X', '-.--': 'Y', 
+  '--..': 'Z', '-----': '0', '.----': '1', '..---': '2', 
+  '...--': '3', '....-': '4', '.....': '5', '-....': '6', 
+  '--...': '7', '---..': '8', '----.': '9', 'c': '', 'space': ' ',
+}
+
+tabela_char_to_morse = {
+  'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.', 
+  'F': '..-.', 'G': '--.', 'H': '....', 'I': '..', 'J': '.---', 
+  'K': '-.-', 'L': '.-..', 'M': '--', 'N': '-.', 'O': '---', 
+  'P': '.--.', 'Q': '--.-', 'R': '.-.', 'S': '...', 'T': '-', 
+  'U': '..-', 'V': '...-', 'W': '.--', 'X': '-..-', 'Y': '-.--', 
+  'Z': '--..', '0': '-----', '1': '.----', '2': '..---', 
+  '3': '...--', '4': '....-', '5': '.....', '6': '-....', 
+  '7': '--...', '8': '---..', '9': '----.', 'c': '', 'space': ' ',
+}
+
+
 @app.route("/", methods=["POST", "GET"])
 def index():
-  resultado = ''
+  resultado = None
   if request.method == "POST":
     codigo = request.form['codigo']
-    try:
-      resultado = morse(codigo + '/')
-      return render_template('index.html', resultado=resultado)
-    except:
-      if len(codigo) > 0:
+    if codigo != '':
+      try:
+        print(codigo)
+        resultado = morse_to_text(codigo + '/')
+        return render_template('index.html', resultado=resultado)
+      except:
         resultado = 'Erro ao traduzir. A sequência de símbolos não corresponde a nenhum caractere válido.'
         return render_template('index.html', resultado=resultado)
-      else:
-        return redirect('/')
   else:
-    return render_template('index.html')
+    return render_template('index.html', resultado=resultado)
   
 
-def morse(codigo):
+def morse_to_text(codigo):
   '''
-  Contém o dicionário e realiza a tradução do input 
-  recebido, de código-morse para ASCII em maiúsculas.
-  
+  Realiza a tradução do input recebido, de código-morse para ASCII em maiúsculas.
   Pontuação e acentos não inclusos.
   '''
-  tabela_morse_to_char = {
-    '.-': 'A', '-...': 'B', '-.-.': 'C', '-..': 'D', '.': 'E', 
-    '..-.': 'F', '--.': 'G', '....': 'H', '..': 'I', '.---': 'J', 
-    '-.-': 'K', '.-..': 'L', '--': 'M', '-.': 'N', '---': 'O', 
-    '.--.': 'P', '--.-': 'Q', '.-.': 'R', '...': 'S', '-': 'T', 
-    '..-': 'U', '...-': 'V', '.--': 'W', '-..-': 'X', '-.--': 'Y', 
-    '--..': 'Z', '-----': '0', '.----': '1', '..---': '2', 
-    '...--': '3', '....-': '4', '.....': '5', '-....': '6', 
-    '--...': '7', '---..': '8', '----.': '9', 'c': '', 'space': ' ',
-  }
-
-  tabela_char_to_morse = {
-    'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.', 
-    'F': '..-.', 'G': '--.', 'H': '....', 'I': '..', 'J': '.---', 
-    'K': '-.-', 'L': '.-..', 'M': '--', 'N': '-.', 'O': '---', 
-    'P': '.--.', 'Q': '--.-', 'R': '.-.', 'S': '...', 'T': '-', 
-    'U': '..-', 'V': '...-', 'W': '.--', 'X': '-..-', 'Y': '-.--', 
-    'Z': '--..', '0': '-----', '1': '.----', '2': '..---', 
-    '3': '...--', '4': '....-', '5': '.....', '6': '-....', 
-    '7': '--...', '8': '---..', '9': '----.', 'c': '', 'space': ' ',
-  }
-
   caracteres_aceitos = ['.', '-', '/']
   caractere = ''
   lista_caracteres = []
@@ -74,7 +73,6 @@ def morse(codigo):
       caractere_anterior = x
     
     return ''.join(lista_caracteres)
-
 
 
 if __name__ == '__main__':

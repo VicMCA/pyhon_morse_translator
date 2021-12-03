@@ -16,35 +16,83 @@
       <form class="formulario" action="/" method="POST">
         <h3>Insira abaixo o código morse</h3>
         <p>São aceitos apenas os caracteres:<br>
-          <ol class="lista-caracteres">
-            <li>"." (ponto final)</li>
-            <li>"-" (sinal de menos)</li>
-            <li>"/" (barra).</li>
-          </ol>
+          <table class="lista-caracteres">
+            <tr>
+              <td><strong>"."</strong></td>
+              <td>(ponto final)</td>
+            </tr>
+            <tr>
+              <td><strong>"-"</strong></td>
+              <td>(sinal de menos)</td>
+            </tr>
+            <tr>
+              <td><strong>"/"</strong></td>
+              <td>(barra)</td>
+            </tr>
+          </table>
         </p>
         <input type="text" oninput="removerCaracteres()" 
-          required id="codigo" name="codigo" 
-          placeholder="Exemplo: ---/..//---/..">
+          id="codigo" name="codigo" required
+          placeholder="exemplo: ---/..//./-">
         <button class="form_buttons" type="submit">Traduzir</button>
         <button class="form_buttons" type="reset">Limpar</button>
       </form>
 
-      <p class="resultado">Resultado:<br/>
-        {% if resultado|length > 0 %}
-          {{ resultado }}
-        {% else %}
-          
-        {% endif %}
-      </p>
+      <div class="traducao">
+        <h4 class="traducao-titulo">Resultado:</h4>
+        <p class="resultado" id="resultado">{{ resultado }}</p>
+        <button onclick="limparResultado()" >Limpar resultado</button>
+      </div>
       
       <div class="informacoes-morse">
-        <table class="tabela-morse">
-
+        <table class="container-tabelas">
+          <tr>
+            <th>Lista de caracteres</th>
+          </tr>
+          <tr>
+            <table class="tabela-morse" id="tabela-morse-letras">
+              <tr>
+                <td>A: .-</td><td>B: -...</td><td>C: -.-.</td><td>D: -..</td>
+                <td>E: .</td><td>F: ..-.</td><td>G: --.</td></tr>
+              <tr>
+                <td>H: ....</td><td>I: ..</td><td>J: .---</td><td>K: -.-</td>
+                <td>L: .-..</td><td>M: --</td><td>N: -.</td>
+              <tr>
+                <td>O: ---</td><td>P: .--.</td><td>Q: --.-</td><td>R: .-.</td>
+                <td>S: ...</td><td>T: -</td><td>U: ..-</td>
+              </tr>
+              <tr>
+                <td>V: ...-</td><td>W: .--</td><td>X: -..-</td>
+                <td>Y: -.--</td><td>Z: --..</td>
+              </tr>
+            </table>
+            <table class="tabela-morse" id="tabela-morse-numeros">
+              <tr>
+                <td>1: .----</td><td>2: ..---</td><td>3: ...--</td>
+                <td>4: ....-</td><td>5: .....</td>
+              </tr>
+              <tr>
+                <td>6: -....</td><td>7: --...</td><td>8: ---..</td>
+                <td>9: ----.</td><td>0: -----</td>
+              </tr>
+            </table>
+            <table class="tabela-morse" id="tabela-morse-espacos">
+              <tr>
+                <td>Separador de caracteres: /</td>
+                <td>Separador de palavras: //</td>
+              </tr>
+            </table>
+          </tr>
         </table>
       </div>
     </div>
     
     <script>
+      function limparResultado() {
+        let texto = document.getElementById("resultado");
+        texto.innerHTML = '<br/>';
+      }
+
       function removerCaracteres() {
         let campoCodigo = document.getElementById("codigo");
         let codigo = campoCodigo.value;
