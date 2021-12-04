@@ -21,7 +21,8 @@ def main():
     # ^ Uma mensagem de agradecimento
     ]
 
-  with open('/log_teste.txt', 'w'):
+  with open('./log_teste.txt', 'w'):
+    
     pass
 
   return

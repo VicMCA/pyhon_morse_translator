@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, url_for, redirect
+from flask import Flask, render_template, request, url_for, redirect, abort, jsonify
 from traduz_morse_texto import morse_to_text
 from traduz_texto_morse import text_to_morse
 

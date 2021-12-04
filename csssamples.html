@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* sample 1 */
+    #grand {
+      padding: 5%;
+      width: 80%;
+      border: 1px solid red;
+      position: relative;
+    }
+    #parent {
+      height: 150px;
+      width: 60%;
+      background: red;
+      margin: auto;
+    }
+    #child {
+      height: 100px;
+      position: absolute;
+      width: 80%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: blue;
+      color: white;
+    }
+    /* sample 2 */
+    #grand {
+      width: 900px;/*update this to whatever : 100% to any other value/units */
+      overflow: hidden
+    }
+    #parent {
+      width: 1000%;
+    }
+    .child {
+      float: left;
+      box-shadow: inset 0 0 0 1px;
+      width: 2.5%;/* wich is here 25% of grand's width */
+    }
+    body {
+      margin: 0;
+    }
+    ul {
+      padding: 0;
+      list-style-type: none;
+    }
+
+    /* sample 3 */
+    .parent {
+      position: relative;
+      --parentHeight: 300px;
+      height: var(--parentHeight);
+      width: 600px;
+      background-color: red;
+    }
+    .parent .resized {
+      height: 100px;
+    }
+  
+    .child {
+      position: absolute;
+      height: 20%;
+      width: calc(var(--parentHeight) / 10);
+      background-color: green;
+    }
+    /* sample 4 */
+    .img-wrap {
+      width: 200px;
+      height: 150px;
+      position: relative;
+      display: inline-block;
+      overflow: hidden;
+      margin: 0;
+    }
+    
+    div > img {
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-height: 100%;
+      min-width: 100%;
+      transform: translate(-50%, -50%);
+    }
+
+  </style>
+</head>
+<body>
+  <!-- sample 1 -->
+  <div id="grand">Grand
+    <div id="parent">Parent
+      <div id="child">Child</div>
+    </div>
+  </div>
+  <!-- sample 2 -->
+  <div id="grand">
+    <ul id="parent">
+      <li class="child">Content</li>
+      <li class="child">Content</li>
+      <li class="child">Content</li>
+      <li class="child">Content</li>
+      <li class="child">Content</li>
+      <li class="child">Content</li>
+    </ul>
+  </div>
+  <!-- sample 3 -->
+  <div class="parent">
+    <div class="child"></div>
+  </div>
+  <!-- sample 4 -->
+  <div class="img-wrap">
+    <img src="http://lorempixel.com/300/160/nature/" />
+  </div>
+  <div class="img-wrap">
+    <img src="http://lorempixel.com/300/200/nature/" />
+  </div>
+  <div class="img-wrap">
+    <img src="http://lorempixel.com/200/300/nature/" />
+  </div>
+</body>
+</html>
