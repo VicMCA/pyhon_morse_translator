@@ -18,7 +18,6 @@ def send_morse():
   codigo = request.form['codigo']
   if codigo != '':
     try:
-      print(codigo)
       resultado = morse_to_text(codigo + '/')
       return render_template('index.html', resultado=resultado)
     except:
