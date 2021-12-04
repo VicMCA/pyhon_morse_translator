@@ -13,11 +13,32 @@
     Após finalizado será enviado de volta para o arquivo main.css -->
 
     <style>
+      @media (max-width: 2400px) {
+        html {
+          font-size: 18px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        html {
+          font-size: 14px;
+        }
+      }
+
+      @media (max-width: 450px) {
+        html {
+          font-size: 10px;
+        }
+      }
+
       body {
         font-family: sans-serif;
         font-size: 1rem;
         display: flex;
         flex-direction: column;
+        min-width: 450px;
+        max-width: 900px;
+        margin: 0 auto;
         align-items: center;
         text-align: center;
         color: #222;
@@ -40,7 +61,7 @@
         border-width: 1px;
         border-color: #ddd;
         border-radius: 0.2em;
-        padding: 5px 10px;
+        padding: .5rem 1rem;
         font-family: monospace;
         transition: .4s ease;
       }
@@ -63,27 +84,27 @@
         padding: .5rem 2rem;
       }
 
-      .lista-caracteres, 
-      .lista-caracteres tr, 
-      .lista-caracteres td,
+      .informacoes-morse,
       .container-tabelas,
-      .container-tabelas 
-      .container-tabelas 
-      .container-tabelas td,
       .tabela-morse,
-      .tabela-morse th, 
-      .tabela-morse td,
-      .tabela-morse tr {
+      .tabela-morse tr, 
+      .tabela-morse td {
         border-style: solid;
-        border-radius: 0.2em;
         border-color: #bbb;
         border-width: 1px;
         border-collapse: collapse;
-        padding: .5em 1em;
       }
-      .lista-caracteres,
-      .container-tabelas {
-        width: 400px;
+
+      .informacoes-morse {
+        border-radius: 0.2rem;
+      }
+
+      .container-tabelas th {
+        padding: .5rem 1rem;
+      }
+
+      .tabela-morse td {
+        padding: .5rem .5rem;
       }
       
     </style>
@@ -136,9 +157,10 @@
 
       </div>
       
+      <br/>
 
       <div class="informacoes-morse">
-        <br/>
+
         <table class="container-tabelas">
           
           <tr>
