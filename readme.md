@@ -33,11 +33,11 @@ Pacotes utilizados:
 
 Passo a passo de instalação e configuração:
 
-1. Clonar este repositório `git clone https://github.com/VicMCA/python_morse_translator.git`  
-2. Dentro da pasta raíz, crie recrie o ambiente virtual `python3 -m venv venv`  
-3. Ativar o ambiente virtual `. venv/bin/activate` (Linux e MacOS) `venv\Scripts\activate` (Windows)  
-4. Instalar o Flask no ambiente virtual `pip3 install flask`  
-5. Rodar a aplicação com `python3 app.py`  
+1. Clone este repositório `git clone https://github.com/VicMCA/python_morse_translator.git`  
+2. Dentro da pasta raíz, recrie o ambiente virtual `python3 -m venv venv`  
+3. Ative o ambiente virtual `. venv/bin/activate` (Linux e MacOS) `venv\Scripts\activate` (Windows)  
+4. Instale o Flask no ambiente virtual `pip3 install flask`  
+5. Rode a aplicação com `python3 app.py`  
 6. O frontend ficará acessível em `http://localhost:5000`  
 
 ## 3. Requisitos
@@ -67,9 +67,13 @@ Lista de requisitos:
 - [x] Conectar a API à um frontend básico
 - [x] Modularizar o código (scripts de tradução separados das rotas do servidor)
 - [x] Criação de endpoints reservados para o envio dos códigos a traduzir
-- [ ] CSS
+- [x] CSS
 - [x] Tabela de letras, números e códigos correspondentes
-- [ ] Testes de carga
+- [x] Testes de carga  
+
+Para próxima versão:  
+
+- [ ] Permitir a tradução inversa, de texto para morse. O script já se encontra pronto no arquivo "traduz_texto_morse.py" mas ainda não foi implementado no frontend
 - [ ] Página de "sobre" do projeto
 - [ ] Link para repositório no GitHub
 
